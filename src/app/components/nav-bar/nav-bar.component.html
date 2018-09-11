@@ -1,0 +1,8 @@
+<mat-toolbar class="mat-primary">
+  <h3 [style.color] = "'white'">ADMIN PORTAL</h3>
+  <div class="button-row ml-auto" *ngIf="loggedIn">
+    <button mat-button>View Book List</button>
+    <button mat-button><a style="color: white !important; text-decoration: none !important;" routerLink="/add-new-book">Add a Book</a></button>
+    <button mat-button (click)="onLogout()">Logout</button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row" *ngIf="!loggedIn">
+    <div class="offset-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <form [formGroup]="loginForm" (ngSubmit)='onSubmit()'>
+        <div class='inputs-box'>
+          <div class="row">
+              <div class="col-md-12">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Username"
+                      formControlName="username">
+                  <mat-error 
+                    *ngIf="loginForm.get('username').touched
+                          && loginForm.get('username').errors
+                          && loginForm.get('username').errors['required']">
+                    Username is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                  <input type="password" matInput 
+                  placeholder="Password"
+                  formControlName="password">
+                  <mat-error *ngIf="loginForm.get('password').touched
+                            && loginForm.get('password').errors
+                            && loginForm.get('password').errors['required']">
+                      Password is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 float-right">
+                <button mat-raised-button type="submit" class="mat-primary rectangle float-right">
+                    Login
+                </button>
+            </div>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+  <div *ngIf="loggedIn">
+    <h2>Logged In</h2>
+  </div>
+
+</div>
